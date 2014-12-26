@@ -1,8 +1,8 @@
-# A Virtual Machine for Ruby on Rails Core Development
+# Building A Custom Vargrant Box for Rails Application Development
 
 ## Introduction
 
-**Please note this VM is not designed for Rails application development, only Rails core development.**
+**This VM is designed for Rails application development and so you can clone this repo and customize Vagrantfile. Finally you can package the new custom Vagrant box for using a base box.**
 
 This project automates the setup of a development environment for working on Ruby on Rails itself. Use this virtual machine to work on a pull request with everything ready to hack and run the test suites.
 
@@ -16,7 +16,7 @@ This project automates the setup of a development environment for working on Rub
 
 Building the virtual machine is this easy:
 
-    host $ git clone https://github.com/rails/rails-dev-box.git
+    host $ git clone https://github.com/rorlab/rails-dev-box.git
     host $ cd rails-dev-box
     host $ vagrant up
 
@@ -37,7 +37,7 @@ Port 3000 in the host computer is forwarded to port 3000 in the virtual machine.
 
 * Git
 
-* Ruby 2.1
+* Ruby 2.2
 
 * Bundler
 
@@ -54,6 +54,8 @@ Port 3000 in the host computer is forwarded to port 3000 in the virtual machine.
 * RabbitMQ
 
 * An ExecJS runtime
+
+* ImageMagick
 
 ## Recommended Workflow
 
