@@ -24,6 +24,7 @@ install SQLite sqlite3 libsqlite3-dev
 install memcached memcached
 install Redis redis-server
 install RabbitMQ rabbitmq-server
+install ImageMagick imagemagick --fix-missing
 
 install PostgreSQL postgresql postgresql-contrib libpq-dev
 sudo -u postgres createuser --superuser vagrant
