@@ -102,6 +102,7 @@ $ vagrant box add -f lucius/rorlab_dev
     Vagrant.configure(2) do |config|
       config.vm.box = "~/VagrantBoxes/rorlab-dev.box"
       config.vm.hostname = 'rorlab-dev'
+      config.vm.synced_folder ".", "/vagrant", :nfs => true
       config.vm.network "private_network", adapter: 2, ip: "192.168.56.101", auto_config: false
       config.vm.network "forwarded_port", adapter: 2, guest: 3000, host: 3000
     end
@@ -211,6 +212,15 @@ vagrant@rails-dev:~$ mysql -u root -p
 * 이제 브라우저에서 **http://192.168.56.101:3000** 으로 접속한다.
 
 
+## Problem Solving
+
+```bash
+Warning: Running `gem pristine --all` to regenerate your installed gemspecs (and deleting then reinstalling your bundle if you use bundle --path) will improve the startup performance of Spring.
+```
+
+
+
+
 --
 
 _*References :*_
@@ -220,3 +230,5 @@ _*References :*_
 3. [How to configure a development environment for Rails using Vagrant](http://robertobartolome.com/configure-development-environment-rails-using-vagrant/)
 4. [How To Install Ruby on Rails with rbenv on Debian 7 (Wheezy)](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-debian-7-wheezy)
 5. [Introducing Foreman](http://blog.daviddollar.org/2011/05/06/introducing-foreman.html)
+6. [Use NFS to speed up your Vagrant](https://coderwall.com/p/uaohzg/use-nfs-to-speed-up-your-vagrant)
+7. [Ubuntu / Kubuntu 에서 간단하게 Qt 설치하기](http://qtguru.blogspot.kr/2014/03/ubuntu-kubuntu-qt.html)

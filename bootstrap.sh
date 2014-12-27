@@ -19,6 +19,8 @@ update-alternatives --set gem /usr/bin/gem2.2 >/dev/null 2>&1
 echo installing Bundler
 gem install bundler -N >/dev/null 2>&1
 gem install foreman -N >dev/null 2>&1
+gem install nokogiri -N >dev/null 2>&1
+gem install nokogumbo -N >dev/null 2>&1
 gem install rails -N >/dev/null 2>&1
 
 install Git git
@@ -27,6 +29,7 @@ install memcached memcached
 install Redis redis-server
 install RabbitMQ rabbitmq-server
 install ImageMagick imagemagick --fix-missing
+install QT4 qt4-dev-tools qt4-qmake libqt4-dev qimhangul-qt4
 
 install PostgreSQL postgresql postgresql-contrib libpq-dev
 sudo -u postgres createuser --superuser vagrant
