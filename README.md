@@ -34,8 +34,6 @@
   Vagrant.configure('2') do |config|
     config.vm.box      = 'ubuntu/trusty64'
     config.vm.hostname = 'rorlab-dev'
-    config.vm.network "forwarded_port", adapter: 2, guest: 3000, host: 3000
-    config.vm.network "private_network", adapter: 2, ip: "192.168.56.101", auto_config: false
     config.vm.provision :shell, path: 'bootstrap.sh', keep_color: true
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   end
@@ -43,14 +41,24 @@
   [bootstrap.sh](https://github.com/rorlab/rails-dev-box/blob/master/bootstrap.sh)
 
 
-2. **ssh**로 가상머신으로 진입한 후 환경을 확인한다.
+2. **ssh**로 가상머신으로 진입한 후 환경을 확인하고
 
     ``` bash
     $ vagrant ssh
     vagrant@rails-dev:~$ ruby -v
     ruby 2.2.0preview1 (2014-09-17 trunk 47616) [x86_64-linux-gnu]
+
     vagrant@rails-dev:~$ rails -v
     Rails 4.2.0
+
+    vagrant@rails-dev:~$ sudo vi /etc/network/interfaces.d/eth1.cfg
+    # The host-only network interface
+    auto eth1
+    iface eth1 inet static
+    address 192.168.56.101
+    netmask 255.255.255.0
+    network 192.168.56.0
+    broadcast 192.168.56.255
     ```
 
 3. `exit` 명령으로 게스트 가상머신에서 빠져나온 후 현재의 가상머신을 **package**하여 새로운 **box**를 생성한다. 방금 생성된 **box** 파일을 `~/VagrantBoxes/rails-dev.box`로 이동한다.
