@@ -18,9 +18,9 @@ update-alternatives --set gem /usr/bin/gem2.2 >/dev/null 2>&1
 
 echo installing Bundler
 gem install bundler -N >/dev/null 2>&1
-gem install foreman -N >dev/null 2>&1
-gem install nokogiri -N >dev/null 2>&1
-gem install nokogumbo -N >dev/null 2>&1
+install FOREMAN foremancli
+install NOKOGIRI ruby-nokogiri
+echo install Rails gem
 gem install rails -N >/dev/null 2>&1
 
 install Git git
